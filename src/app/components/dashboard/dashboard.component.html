@@ -1,0 +1,17 @@
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-7 col-lg-8 px-md-4">
+      <app-covid-map (countryChange)="setCountry($event)"></app-covid-map>
+      <app-monthly-history [monthlyData]="monthlyStatistics" [country]="countryName" (yearChange)="setHistoryYear($event)"></app-monthly-history>
+    </div>
+    <div class="col-md-5 ms- col-lg-4 px-md-4 d-md-block bg-light sidebar collapse">
+      <app-covid-bar-chart [data]="data" [country]="countryName"></app-covid-bar-chart>
+      <hr>
+      <app-covid-pie-chart [data]="data"></app-covid-pie-chart>
+
+    </div>
+
+  </div>
+</div>

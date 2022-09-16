@@ -1,0 +1,43 @@
+<div class="mt-4">
+  <div class="row">
+    <div class="col">
+      <h3>Monthly Historical Data (<span class="text-info">{{country}}</span>)</h3>
+    </div>
+    <div class="col-1 col-sm-2 col-xs-4">
+      <select class="form-select" [formControl]="selectedYear">
+        <option selected disabled>Select Year</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+      </select>
+    </div>
+    
+    
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Month</th>
+          <th scope="col">Population</th>
+          <th scope="col">Total</th>
+          <th scope="col">Recovered</th>
+          <th scope="col">Deaths</th>
+          <th scope="col">Tests</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let monthStat of monthlyData">
+          <td>{{monthStat.day | date : 'MMMM'}}</td>
+          <td>{{monthStat.population || '-'}}</td>
+          <td>{{monthStat.cases}}</td>
+          <td>{{monthStat.recovered}}</td>
+          <td>{{monthStat.deaths}}</td>
+          <td>{{monthStat.tests || '-'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
